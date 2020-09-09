@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<style background-attachment: .body;></style>
+<head>
+    <meta charset="utf-8" />
+    <title>Quiz Game</title> 
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+  <div id="count">Start</div>
+<style>
+.blue001 {
+background-color: blue;
+width: 170px;
+height: 70px;
+color: white;
+border: blue;
+text-align: centeer;
+}
+
+.blue002 {
+background-color: dodgerblue;
+width: 40px;
+height: 20px;
+color: white;
+border: blue;
+text-align: centeer;
+}
+</style>
+                <h2>codingQuiz</h2>
+                Question: <text id="number001">0</text> / 4<br />
+                Score: <text id="score001">0</text> / 4<br />
+            </div>
+            <hr />
+<p id="message001"></p>
+<p id="message002"></p>
+<p id="message003"></p>
+
+<script>
+var questions = ["What is Python?<br /><br /><button class=blue001 id=hide1 onclick=correct1()>A. programming lanaguage</button><br /><br /><button class=blue001 id=hide2 onclick=incorrect1()>B. Snake</button><br /><br />",
+
+     "What is a terminal?<br /><br /><button class=blue001 id=hide2 onclick=incorrect1()>A. Programming language</button><br /><br /><button class=blue001 id=hide1 onclick=correct1()>B. Used to put in, receive, and display information in a computer system.</button><br /><br />",
+          
+         "A loop that never ends is referred to as a?<br /><br /><button class=blue001 id=hide2 onclick=incorrect1()>A. While loop</button><br /><br /><button class=blue001 id=hide1 onclick=correct1()>B. Infinite loop</button><br /><br />",
+          
+         "Which command will stop an infinite loop?<br /><br /><button class=blue001 id=hide1 onclick=correct1()>A. Ctrl-C</button><br /><br /><button class=blue001 id=hide2 onclick=incorrect1()>B. Shift-C</button><br /><br />",
+          "0"];
+          
+          var answers = ["The answer is A.", "The answer is B.", "The answer is B.", "The answer is A.", "The answer is 10.", "The answer is 12.", "The answer is 14.", "The answer is 16.", "The answer is 18.", "The answer is 20.", "0"];
+          
+          var numbers = 0;
+          numbers++;
+          
+          var scores = 0;
+          scores++;
+          
+          
+          window.onload = function() {
+          number001.innerHTML = numbers++;
+          message001.innerHTML = questions.shift();
+          }
+          
+ 
+function btn1() {
+number001.innerHTML = numbers++;
+message001.innerHTML = questions.shift();
+message002.innerHTML = "";
+message003.innerHTML = "";
+if (questions == questions.length) {
+message001.innerHTML = "End of Quiz";
+number001.innerHTML = numbers - 2;
+stop.basicTimer
+  }
+  }
+  
+ 
+function correct1() {
+score001.innerHTML = scores++;
+message002.innerHTML = "Correct. " + answers.shift();
+hide1.style.background = "green";
+hide1.disabled = true;
+hide2.disabled = true;
+message003.innerHTML = "<button class=blue002 onclick=btn1()>Next</button>";
+}
+
+function incorrect1() {
+message002.innerHTML = "Incorrect. " + answers.shift();
+hide2.style.background = "red";
+hide1.style.background = "green";
+hide1.disabled = true;
+hide2.disabled = true;
+message003.innerHTML = "<button class=blue002 onclick=btn1()>Next</button>";
+}
+
+
+</script>
+</body>
+</html>
